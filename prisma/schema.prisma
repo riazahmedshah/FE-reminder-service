@@ -21,6 +21,8 @@ model Notification{
   recepientEmail String
   status Status @default(PENDING)
   notificationTime DateTime @default(now())
+  createdAT DateTime @default(now())
+  updatedAt DateTime @default(now())
 }
 
 enum Status{
