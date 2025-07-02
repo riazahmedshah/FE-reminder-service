@@ -20,8 +20,8 @@ model Notification{
   content String
   recepientEmail String
   status Status @default(PENDING)
-  notificationTime DateTime @default(now())
-  createdAT DateTime @default(now())
+  notificationTime DateTime
+  createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
 
