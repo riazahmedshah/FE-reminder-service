@@ -1,5 +1,6 @@
 import { sender } from "../config/nodemailar"
 import { TicketRepsitory } from "../repositories/TicketRepository";
+import { TicketProps } from "../types/ticketTypes";
 
 export class TicketService{
     static sendBasicEmail(mailFrom:string ,mailTo:string,mailSubject:string,mailBody:string){
@@ -17,6 +18,15 @@ export class TicketService{
         } catch (error) {
             console.error(error);
             throw new Error("Error from service:GET_ALL_TICKETS");
+        }
+    }
+
+    static async createTicket(data:TicketProps){
+        try {
+            return await TicketRepsitory.createTicket(data);
+        } catch (error) {
+            console.error(error);
+            throw new Error("Error from service:CREATE_TICKET");
         }
     }
 }
