@@ -20,6 +20,14 @@ export class TicketService{
             throw new Error("Error from service:GET_ALL_TICKETS");
         }
     }
+    static async getPendingTickets(){
+        try {
+            return await TicketRepsitory.getPendingTickets();
+        } catch (error) {
+            console.error(error);
+            throw new Error("Error from service:GET_PENDING_TICKETS");
+        }
+    }
 
     static async createTicket(data:TicketProps){
         try {

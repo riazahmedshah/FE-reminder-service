@@ -18,4 +18,16 @@ export class TicketRepsitory{
     static async getAllTickets(){
         return await prisma.notification.findMany();
     }
+
+    static async getPendingTickets(){
+        return await prisma.notification.findMany({
+            where:{
+                AND:[
+                    {status:{equals: 'PENDING'}},
+                    {notificationTime:{lte:new Date()}}
+                ]
+                
+            }
+        })
+    }
 }
