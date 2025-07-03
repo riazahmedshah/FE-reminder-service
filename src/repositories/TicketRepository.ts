@@ -22,11 +22,8 @@ export class TicketRepsitory{
     static async getPendingTickets(){
         return await prisma.notification.findMany({
             where:{
-                AND:[
-                    {status:{equals: 'PENDING'}},
-                    {notificationTime:{lte:new Date()}}
-                ]
-                
+                status:'PENDING',
+                notificationTime:{lte:new Date()},   
             }
         })
     }

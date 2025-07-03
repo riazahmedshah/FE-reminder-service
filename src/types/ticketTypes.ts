@@ -1,7 +1,7 @@
 export interface TicketProps{
     subject: string
     content:string
-    status: Status
+    status?: Status
     recepientEmail:string
     notificationTime:Date
 }
