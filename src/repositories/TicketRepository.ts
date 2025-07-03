@@ -27,4 +27,15 @@ export class TicketRepsitory{
             }
         })
     }
+
+    static async updateTicket(id:number){
+        return await prisma.notification.update({
+            where:{
+                id
+            },
+            data:{
+                status:"SUCCESS"
+            }
+        });
+    }
 }

@@ -37,5 +37,14 @@ export class TicketService{
             throw new Error("Error from service:CREATE_TICKET");
         }
     }
+
+    static async updateTicket(id:number){
+        try {
+            return await TicketRepsitory.updateTicket(id);
+        } catch (error) {
+            console.error(error);
+            throw new Error("Error from service:UPDATE_TICKET");
+        }
+    }
 }
 
